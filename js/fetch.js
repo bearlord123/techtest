@@ -1,6 +1,13 @@
 // JavaScript Document
 (function(){
-$.getJSON	("http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20location%3D%2222102%22&format=json",function(data){
+jQuery.support.cors = true;
+	
+$.ajax
+({
+	url:"http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20weather.forecast%20where%20location%3D%2222102%22&format=json",
+	cache:false,
+	dataType:"json",
+	success:function(data){
 	var now = data.query.results.channel.item;
 	
 	var items = [];
@@ -23,5 +30,5 @@ $.getJSON	("http://query.yahooapis.com/v1/public/yql?q=select%20item%20from%20we
 	
 	
 	
-});
+}});
 })(jQuery);
